@@ -1,5 +1,5 @@
 AllCops:
-  AllCops: NewCops: enable
+  NewCops: enable
   Exclude:
     - "Guardfile"
     - "Rakefile"
@@ -47,4 +47,8 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
+  Enabled: false
+Style/BlockComments:
+  Enabled: false
+Lint/UselessAssignment:
   Enabled: false
