@@ -1,4 +1,5 @@
 AllCops:
+  AllCops: NewCops: enable
   Exclude:
     - "Guardfile"
     - "Rakefile"
