@@ -6,6 +6,6 @@ puts 'Verifying...'
 sleep(2)
 puts 'What do you want to do?'
 puts '1.- Consult savings'
-puts '2.- Withdraw'
-puts '3.- Deposit'
+puts '2.- Deposit'
+puts '3.- Withdraw'
 option = gets.chomp
