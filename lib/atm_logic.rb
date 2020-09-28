@@ -10,6 +10,7 @@ class Atm
   end
 
   def deposit(amount)
+    amount = amount.to_i
     if amount.positive?
       @savings += amount
       true
@@ -38,9 +39,3 @@ class Atm
     arr.any?('a'..'z') ? true : false
   end
 end
-
-atm = Atm.new
-puts 'enter an amount'
-money = gets.chomp
-
-p atm.valid_money?(money)
