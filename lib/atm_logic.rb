@@ -11,8 +11,22 @@ class Atm
 
   def deposit(amount)
     amount = amount.to_i
-    if amount.positive?
-      @savings += amount
+    @savings += amount
+  end
+
+  def valid_deposit?(amount)
+    amount = amount.to_i
+    amount.positive? ? true : false
+  end
+
+  def withdraw(amount)
+    amount = amount.to_i
+    @savings -= amount
+  end
+
+  def valid_withdraw?(amount)
+    amount = amount.to_i
+    if amount.positive? && amount < @savings
       true
     else
       false

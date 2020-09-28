@@ -32,14 +32,21 @@ when 1
 when 2
   puts 'How much do you want to deposit?'
   amount = gets.chomp
-  until atm.valid_money?(amount) && atm.deposit(amount)
+  until atm.valid_money?(amount) && atm.valid_deposit?(amount)
     puts "#{amount} is not a correct amount. Try again"
     amount = gets.chomp
   end
-  puts "Your new savings is #{atm.display}"
   atm.deposit(amount)
+  puts "Your new savings is #{atm.display}"
 when 3
-  puts "I'm option #{user_option}"
+  puts 'How much do you awnt to withdraw'
+  amount = gets.chomp
+  until atm.valid_money?(amount) && atm.valid_withdraw?(amount)
+    puts "You don't have #{amount} saved. Try again"
+    amount = gets.chomp
+  end
+  atm.withdraw(amount)
+  puts "Your new savings is #{atm.display}"
 else
   puts "I'm option #{user_option}"
 end
