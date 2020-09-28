@@ -1,4 +1,8 @@
 require_relative '../lib/atm_logic'
+require_relative '../lib/user_login'
+
+atm = Atm.new
+user = User.new
 
 def atm_options
   option = ''
@@ -17,13 +21,24 @@ def atm_options
   option
 end
 
-atm = Atm.new
+def request_user_information(user)
+  puts 'Enter your account Number'
+  account_number = gets.chomp
+  puts 'Enter your password'
+  account_password = gets.chomp
+  puts 'Verifying...'
 
-puts 'Enter your account Number'
-account_number = gets.chomp
-puts 'Enter your password'
-account_password = gets.chomp
-puts 'Verifying...'
+  until user.valid_information?(account_number, account_password)
+    puts 'Wrong! try again.'
+    puts 'Enter your account Number'
+    account_number = gets.chomp
+    puts 'Enter your password'
+    account_password = gets.chomp
+    puts 'Verifying...'
+  end
+end
+
+request_user_information(user)
 sleep(2)
 user_option = atm_options
 case user_option
