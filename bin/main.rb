@@ -39,12 +39,16 @@ def request_user_information(user)
 end
 
 request_user_information(user)
+print "\033[2J\033[H"
+puts 'Welcome...'
 sleep(2)
 user_option = atm_options
 case user_option
 when 1
+  print "\033[2J\033[H"
   puts atm.display
 when 2
+  print "\033[2J\033[H"
   puts 'How much do you want to deposit?'
   amount = gets.chomp
   until atm.valid_money?(amount) && atm.valid_deposit?(amount)
@@ -54,6 +58,7 @@ when 2
   atm.deposit(amount)
   puts "Your new savings is #{atm.display}"
 when 3
+  print "\033[2J\033[H"
   puts 'How much do you awnt to withdraw'
   amount = gets.chomp
   until atm.valid_money?(amount) && atm.valid_withdraw?(amount)
